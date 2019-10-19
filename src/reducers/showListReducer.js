@@ -10,6 +10,9 @@ export default function(state = {}, action = {}) {
         case ActionTypes.SET_SEARCH_RESULT:
             newState = {...state, searchResults: payload};
             break;
+        case ActionTypes.CLEAR_DETAILS_DATA:
+            newState = {...state, searchResults: state.shows};
+            break;
         default:
             newState = state;
     }
