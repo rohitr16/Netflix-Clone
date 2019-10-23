@@ -1,20 +1,23 @@
 import ActionTypes from '../actions/ActionTypes';
 
-export default function(state = {}, action = {}) {
-    let newState = {};
+const initialState = {
+    shows: [],
+    searchResults: [],
+    searchKey: ''
+}
+
+export default function(state = initialState, action = {}) {
     const payload = action.payload;
     switch (action.type) {
         case ActionTypes.GET_SHOW_LIST:
-            newState = payload;
-            break;
+            return {...state, shows:payload.shows, searchResults: payload.searchResults};
         case ActionTypes.SET_SEARCH_RESULT:
-            newState = {...state, searchResults: payload};
-            break;
+            return {...state, searchResults: payload};
         case ActionTypes.CLEAR_DETAILS_DATA:
-            newState = {...state, searchResults: state.shows};
-            break;
+            return {...state, searchResults: state.shows};
+        case ActionTypes.SET_SEARCH_KEY:
+            return {...state, searchKey: payload.value};
         default:
-            newState = state;
+            return state;
     }
-    return newState;
 };

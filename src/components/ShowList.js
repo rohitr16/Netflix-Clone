@@ -5,7 +5,7 @@ class ShowList extends Component {
 
     render() {
         const {getIMDBData, showList = {}, history} = this.props;
-        const {shows = [], searchResults = []} = showList;
+        const {searchResults = []} = showList;
         return (
             <div className="showlist__wrapper">
                 {searchResults.map((item) => {

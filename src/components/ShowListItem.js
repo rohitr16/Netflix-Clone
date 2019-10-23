@@ -8,10 +8,12 @@ class ShowListItem extends Component {
         this.handleCardClick = this.handleCardClick.bind(this);
     }
 
-    handleCardClick(showDetailsJSON) {
-        const {getIMDBData, history} = this.props;
+    handleCardClick() {
+        const {getIMDBData, history, showDetailsJSON = {}} = this.props;
+        const {imdbID} = showDetailsJSON;
 
-        getIMDBData(showDetailsJSON, history);
+        //getIMDBData(showDetailsJSON, history);
+        history.push(`/showDetails/${imdbID}`);
     }
 
 

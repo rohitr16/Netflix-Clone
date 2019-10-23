@@ -15,7 +15,13 @@ class Landing extends Component {
 }
 
 const mapStateToProps = ({ showList, showDetails }) => {
-    return { showList, showDetails }; 
+    const {searchKey = '', shows = []} = showList;
+    const searchResults = shows.filter((item) => {
+        const title = item.title.toUpperCase();
+        return title.search(searchKey) >=0 || title.search(searchKey.toUpperCase()) >= 0;
+    });
+
+    return { showList: {searchResults}, showDetails }; 
 }
 
 export default connect(mapStateToProps, actions)(Landing);

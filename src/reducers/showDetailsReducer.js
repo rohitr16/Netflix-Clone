@@ -5,7 +5,7 @@ export default function(state = {}, action) {
     let newState = {};
     switch (action.type) {
         case ActionTypes.GET_IMDB_DATA:
-            newState =  payload;
+            newState =  {...state, ...payload.showDetails};
             break;
         case ActionTypes.CLEAR_DETAILS_DATA:
             newState = {};

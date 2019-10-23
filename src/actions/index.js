@@ -19,6 +19,10 @@ export const filterSearchItem = (value = '', list) => dispatch => {
     dispatch({ type: ActionTypes.SET_SEARCH_RESULT, payload: searchResults });
 }
 
+export const saveSearchKey = (value) => dispatch => {
+    dispatch({ type: ActionTypes.SET_SEARCH_KEY, payload: {value} });
+}
+
 export const getIMDBData = (showDetailsJSON, history) => async dispatch => {
     const {imdbID} = showDetailsJSON;
     const params = {
@@ -29,6 +33,15 @@ export const getIMDBData = (showDetailsJSON, history) => async dispatch => {
     dispatch({ type: ActionTypes.GET_IMDB_DATA, payload: {...res.data, ...showDetailsJSON} });
 
     history.push('/showDetails');
+};
+
+export const getIMDBDatadetails = (imdbID) => async dispatch => {
+    const params = {
+        i: imdbID,
+        apikey
+    }
+    const res = await axios.get('http://www.omdbapi.com/', {params});
+    dispatch({ type: ActionTypes.GET_IMDB_DATA, payload: {showDetails: res.data} });
 };
 
 export const clearDetails = () => dispatch => {

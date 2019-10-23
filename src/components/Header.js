@@ -15,8 +15,7 @@ class Header extends Component {
 
     handleChange(e){
         const value = e.target.value;
-        const {shows = []} = this.props.showList || {};
-        this.props.filterSearchItem(value, shows);
+        this.props.saveSearchKey(value);
     }
 
 
