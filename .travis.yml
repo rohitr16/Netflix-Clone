@@ -6,8 +6,6 @@ services:
 before_install:
   - docker build -t rohitr1612/docker-react -f Dockerfile.dev .
 
-script:
-  - docker run -e CI=true rohitr1612/docker-react
 
 deploy:
   provider: elasticbeanstalk
