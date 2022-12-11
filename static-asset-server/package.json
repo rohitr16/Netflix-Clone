@@ -9,6 +9,6 @@
   "author": "roit ranjan <rohitr1612@gmail.com> (http://blog.example.com)",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
